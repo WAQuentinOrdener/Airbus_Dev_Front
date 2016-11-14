@@ -1,0 +1,17 @@
+{
+  "name": "Airbus_Dev_Front",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~4.0.0-alpha.2",
+    "angular": "~1.5.7",
+    "angular-resource": "~1.5.7"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": "dist/css/bootstrap.css"
+    }
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.7"
+  }
+}
