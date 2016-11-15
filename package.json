@@ -46,6 +46,7 @@
   },
   "scripts": {
     "install": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "start": "grunt serve",
     "serve:dist": "grunt serve:dist",
     "build": "grunt build",
     "test": "grunt test",

@@ -9,13 +9,19 @@
             <div class="inner-tile-container">
                 <span>{{ result.nameApp }}</span>
                 <div class="bubbles">
-                    <span class="bubble" ng-class="{'red' : result.errInfra > 25, 'amber' : result.errInfra <= 25 && result.errInfra >= 15, 'green' : result.errInfra < 15}">
+                    <span class="bubble" 
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Infra'}]"
+                          ng-class="{'red' : result.errInfra > 25, 'amber' : result.errInfra <= 25 && result.errInfra >= 15, 'green' : result.errInfra < 15}">
                         {{ result.errInfra }}
                     </span>
-                    <span class="bubble" ng-class="{'red' : result.errSem > 25, 'amber' : result.errSem <= 25 && result.errSem >= 15, 'green' : result.errSem < 15}">
+                    <span class="bubble"
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Incidents'}]"
+                          ng-class="{'red' : result.errSem > 25, 'amber' : result.errSem <= 25 && result.errSem >= 15, 'green' : result.errSem < 15}">
                         {{ result.errSem }}
                     </span>
-                    <span class="bubble" ng-class="{'red' : result.errAvailability > 25, 'amber' : result.errAvailability <= 25 && result.errAvailability >= 15, 'green' : result.errAvailability < 15}">
+                    <span class="bubble"
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Availability'}]"
+                          ng-class="{'red' : result.errAvailability > 25, 'amber' : result.errAvailability <= 25 && result.errAvailability >= 15, 'green' : result.errAvailability < 15}">
                         {{ result.errAvailability }}
                     </span>
                 </div>

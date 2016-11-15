@@ -12,11 +12,12 @@
       'Airbus_Dev_Front.config',
       'Airbus_Dev_Front.components.home',
       'Airbus_Dev_Front.components.applicationTiles',
-      'Airbus_Dev_Front.components.monitoring'
+      'Airbus_Dev_Front.components.monitoring',
+      'Airbus_Dev_Front.components.kibana'
     ])
     .controller('AppController', AppController);
 
-  AppController.$inject = ['$rootRouter'];
+  AppController.$inject = ['$rootRouter', '$http'];
 
   /**
    * AppController
@@ -25,7 +26,8 @@
    * @main Airbus_Dev_Front
    * @constructor
    */
-  function AppController ($rootRouter) {
+  function AppController ($rootRouter, $http) {
+    $http.get('http://localhost:5601/app/');
     $rootRouter.config([
       {
         path: '/home',
@@ -37,6 +39,11 @@
         path: '/monitoring',
         name:'Monitoring',
         component: 'monitoring'
+      },
+      {
+        path: '/kibana',
+        name:'Kibana',
+        component: 'kibana'
       }
     ]);
   }

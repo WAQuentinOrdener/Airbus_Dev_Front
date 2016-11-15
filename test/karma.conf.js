@@ -25,6 +25,7 @@ module.exports = function(config) {
       // injector:js
       'app/components/applicationtiles/applicationtiles.js',
       'app/components/home/home.js',
+      'app/components/kibana/kibana.js',
       'app/components/monitoring/monitoring.js',
       'app/components/tile/tile.js',
       'app/scripts/config.js',
@@ -33,6 +34,7 @@ module.exports = function(config) {
       'test/components/applicationtiles/applicationtiles.spec.js',
       'test/components/contact/contact.spec.js',
       'test/components/home/home.spec.js',
+      'test/components/kibana/kibana.spec.js',
       'test/components/monitoring/monitoring.spec.js',
       'test/components/tile/tile.spec.js',
       'test/main.spec.js',
