@@ -8,35 +8,35 @@
   'use strict';
 
   angular
-    .module('Airbus_Dev_Front.components.monitoring', ['ngComponentRouter'])
-    .component('monitoring', {
-      controller: Controller,
-      templateUrl: 'components/monitoring/monitoring.html',
-      $canActivate: $canActivate
-    });
+          .module('Airbus_Dev_Front.components.monitoring', ['ngComponentRouter'])
+          .component('monitoring', {
+            controller: Controller,
+            templateUrl: 'components/monitoring/monitoring.html',
+            $canActivate: $canActivate
+          });
 
-  Controller.$inject = ['$route'];
+  Controller.$inject = [];
 
-  function Controller($route) {
+  function Controller() {
     var ctrl = this;
+    ctrl.$routerOnActivate = function (next, previous) {
+      return ctrl.appCode = next.params.appCode;
+    };
     ctrl.tabResults = [];
-    ctrl.appName = 'A380';
-    for(var i = 0; i <= 10 ; i++ ){
+    for (var i = 0; i <= 10; i++) {
       ctrl.tabResults[i] = {
         sondeNum: i,
         isAlive: true,
         inUseSince: '10/11'
       };
     }
-//    console.log($route);
-    ctrl.name = 'monitoring ';
   }
 
   function $canActivate() {
     return true;
   }
 
-  Controller.prototype.$onInit = function() {
+  Controller.prototype.$onInit = function () {
     var ctrl = this;
     ctrl.onInit = 'Success';
   };

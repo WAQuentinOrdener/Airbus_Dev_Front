@@ -36,11 +36,7 @@
       {
         path: '/monitoring',
         name:'Monitoring',
-        component: 'monitoring', 
-        routeParams:{
-          nameApp: '',
-          err: false
-        }
+        component: 'monitoring'
       }
     ]);
   }
