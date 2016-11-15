@@ -35,3 +35,60 @@ footer {
     float: none;
   }
 }
+
+/* Personnal code */
+
+/* Home */
+.container-tiles{
+    width:90%;
+    margin: 50px auto;
+    overflow:hidden;
+    padding:10px;
+    background-color: #d2d2d2;
+    border-radius:5px;
+}
+.tile-layout{
+    padding: 10px;
+    overflow:hidden;
+}
+.tile {
+    border: 5px solid #e2e2e2;
+    padding:10px;
+}
+.amber{
+    background-color: #d6af55;
+}
+.green{
+    background-color: #5fc75f;
+}
+.inner-tile-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    margin-top: 50px;
+}
+.inner-tile-container  a{
+    color:inherit;
+    line-height: 14px;
+}
+.tile-inner-flex-start {
+    align-self: flex-start;
+}
+.tile-inner-flex-end {
+    align-self: flex-end;
+}
+
+/* Monitoring view */
+.table-monitoring{
+    width: 90%;
+    margin:50px auto;
+}
+.table-row-monitoring td,th{
+    padding:10px;
+}
+.table-row-even{
+    background-color: #eee;
+}
+.table-row-odd{
+    background-color: #ddd;
+}

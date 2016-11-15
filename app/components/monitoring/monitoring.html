@@ -1,0 +1,31 @@
+<h1>Application name : {{ $ctrl.appName }}</h1>
+<table class="table-monitoring">
+    <thead>
+        <tr class="table-row-monitoring">
+            <th>
+                Sonde
+            </th>
+            <th>
+                Is alive
+            </th>
+            <th>
+                In use since
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-row-monitoring"
+            ng-repeat="result in $ctrl.tabResults" 
+            ng-class="{ 'table-row-even' : $even, 'table-row-odd' : $odd }">
+            <td>
+                {{ result.sondeNum }}
+            </td>
+            <td>
+                {{ result.isAlive }}
+            </td>
+            <td>
+                {{ result.inUseSince }}
+            </td>
+        </tr>
+    </tbody>
+</table>

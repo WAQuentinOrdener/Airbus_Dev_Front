@@ -64,6 +64,7 @@
     "@angular/router": "^0.2.0",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "font-awesome": "^4.7.0",
     "tingodb": "^0.4.2"
   }
 }

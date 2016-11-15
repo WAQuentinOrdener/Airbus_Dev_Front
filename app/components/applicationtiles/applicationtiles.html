@@ -1,0 +1,19 @@
+<div class="container-tiles">
+    <div class="tile-layout col-md-3" ng-repeat="result in $ctrl.results">
+        <div class="tile" ng-class="{ 'amber' : result.err === true, 'green' : result.err === false}">
+            <p>
+                {{ result.nameApp}} ---- Date :  {{ result.date}}
+            </p>
+            <p>
+                More than 2 incidents : {{ result.err }}
+            </p>
+            <hr>
+            <div class="inner-tile-container">
+                <a ng-link="['Monitoring']">
+                    <span class="fa fa-eye tile-inner-flex-start" ></span>
+                </a>
+                <span class="fa fa-bar-chart tile-inner-flex-end"></span>
+            </div>
+        </div>
+    </div>
+</div>

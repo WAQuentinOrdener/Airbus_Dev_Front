@@ -11,8 +11,8 @@
       'ngComponentRouter',
       'Airbus_Dev_Front.config',
       'Airbus_Dev_Front.components.home',
-      'Airbus_Dev_Front.components.about',
-      'Airbus_Dev_Front.components.contact'
+      'Airbus_Dev_Front.components.applicationTiles',
+      'Airbus_Dev_Front.components.monitoring'
     ])
     .controller('AppController', AppController);
 
@@ -34,14 +34,13 @@
         useAsDefault: true
       },
       {
-        path: '/about',
-        name:'About',
-        component: 'about'
-      },
-      {
-        path: '/contact',
-        name:'Contact',
-        component: 'contact'
+        path: '/monitoring',
+        name:'Monitoring',
+        component: 'monitoring', 
+        routeParams:{
+          nameApp: '',
+          err: false
+        }
       }
     ]);
   }
