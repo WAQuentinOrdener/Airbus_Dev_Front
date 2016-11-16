@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  describe('Component: contact', function () {
+  describe('Component: kibana', function () {
 
     var controller, compile, rootScope;
 
-    beforeEach(module('Airbus_Dev_Front.components.contact'));
+    beforeEach(module('Airbus_Dev_Front.components.kibana'));
     beforeEach(module('templates'));
 
     beforeEach(inject(function($rootScope, $compile, $componentController) {
@@ -14,13 +14,13 @@
       rootScope = $rootScope;
     }));
 
-    describe('Contact Controller', function() {
+    describe('Kibana Controller', function() {
       it('Test Case', function () {
         var $scope = {};
 
         // Controllerの生成
-        var ctrl = controller('contact', {$scope: $scope});
-        expect(ctrl.name).toEqual('Contact');
+        var ctrl = controller('kibana', {$scope: $scope});
+        expect(ctrl.name).toEqual('kibana ');
 
         // $onInitの実行
         ctrl.$onInit();
@@ -29,9 +29,9 @@
     });
 
     // selector
-    describe('Contact templateUrl', function() {
+    describe('Kibana templateUrl', function() {
       it('Test Case', function () {
-        var factory = compile('<contact></contact>');
+        var factory = compile('<kibana></kibana>');
         var scope = rootScope.$new();
         var element = factory(scope);
         scope.$digest();
@@ -40,3 +40,4 @@
     });
   });
 })();
+

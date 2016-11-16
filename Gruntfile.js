@@ -45,8 +45,6 @@ module.exports = function (grunt) {
       'clean:server',
       'injector',
       'wiredep',
-      'eslint',
-      'jscs',
       'concurrent:server',
       'autoprefixer',
       'express:dev',

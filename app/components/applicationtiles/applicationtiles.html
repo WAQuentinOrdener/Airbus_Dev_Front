@@ -1,18 +1,34 @@
 <div class="container-tiles">
-    <div class="tile-layout col-md-3" ng-repeat="result in $ctrl.results">
-        <div class="tile" ng-class="{ 'amber' : result.err === true, 'green' : result.err === false}">
-            <p>
-                {{ result.nameApp}} ---- Date :  {{ result.date}}
-            </p>
-            <p>
-                More than 2 incidents : {{ result.err }}
-            </p>
-            <hr>
+    <div class="err-text-container">
+        <span class="err-text">Infra</span>
+        <span class="err-text">Incidents</span>
+        <span class="err-text">Availability</span>
+    </div>
+    <div class="tile-layout" ng-repeat="result in $ctrl.results">
+        <div class="tile">
             <div class="inner-tile-container">
-                <a ng-link="['Monitoring']">
-                    <span class="fa fa-eye tile-inner-flex-start" ></span>
+                <span>{{ result.nameApp }}</span>
+                <div class="bubbles">
+                    <span class="bubble" 
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Infra'}]"
+                          ng-class="{'red' : result.errInfra > 25, 'amber' : result.errInfra <= 25 && result.errInfra >= 15, 'green' : result.errInfra < 15}">
+                        {{ result.errInfra }}
+                    </span>
+                    <span class="bubble"
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Incidents'}]"
+                          ng-class="{'red' : result.errSem > 25, 'amber' : result.errSem <= 25 && result.errSem >= 15, 'green' : result.errSem < 15}">
+                        {{ result.errSem }}
+                    </span>
+                    <span class="bubble"
+                          ng-link="['Kibana', {appCode: result.nameApp, errName: 'Availability'}]"
+                          ng-class="{'red' : result.errAvailability > 25, 'amber' : result.errAvailability <= 25 && result.errAvailability >= 15, 'green' : result.errAvailability < 15}">
+                        {{ result.errAvailability }}
+                    </span>
+                </div>
+                <a ng-link="['Monitoring', {appCode: result.nameApp}]">
+                    <span class="fa fa-eye" ></span>
                 </a>
-                <span class="fa fa-bar-chart tile-inner-flex-end"></span>
+                <!--<span class="fa fa-bar-chart"></span>-->
             </div>
         </div>
     </div>
