@@ -24,3 +24,10 @@ After creating new component : -
  - Intregating him to index.html / main.js
 
 ## popover.js commented in index.html since loader not modulable
+
+## Build
+
+remember : 
+
+ - place your fonts from font-awesome manually in dist/fonts
+ - copy/paste the files from folder dist in www folder

@@ -3,6 +3,7 @@
  *
  * @module Airbus_Dev_Front.components.home
  */
+/* global angular */
 (function () {
   'use strict';
 
@@ -41,14 +42,14 @@
 
   Controller.prototype.$routerCanReuse = function () {
     return true;
-  }
+  };
 
   Controller.prototype.$routerOnReuse = function() {
   };
 
   Controller.prototype.$routerCanDeactivate = function () {
     return true;
-  }
+  };
 
   Controller.prototype.$routerOnDeactivate = function() {
   };

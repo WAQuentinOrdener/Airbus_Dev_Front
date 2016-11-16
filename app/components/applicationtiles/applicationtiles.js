@@ -17,6 +17,12 @@
 
   Controller.$inject = [];
 
+  /**
+   * Controller
+   *
+   * @class Controller
+   * @constructor
+   */
   function Controller() {
     var ctrl = this;
     ctrl.results = [];
@@ -56,10 +62,10 @@
     ctrl.results[1] = ctrl.resultat1;
     ctrl.results[2] = ctrl.resultat2;
     ctrl.results[3] = ctrl.resultat3;
-    ctrl.name = 'applicationTiles';
     ctrl.goToMonitoring = function (app) {
       console.log(app.nameApp);
     };
+    ctrl.name = 'applicationTiles';
   }
 
   function $canActivate() {

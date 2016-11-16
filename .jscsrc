@@ -13,13 +13,11 @@
     "requireOperatorBeforeLineBreak": true,
     "requireCamelCaseOrUpperCaseIdentifiers": true,
     "maximumLineLength": {
-      "value": 150,
+      "value": 1500,
       "allowComments": true,
       "allowRegex": true
     },
     "validateIndentation": 2,
-    "validateQuoteMarks": "'",
-
     "disallowMultipleLineStrings": true,
     "disallowMixedSpacesAndTabs": true,
     "disallowTrailingWhitespace": true,

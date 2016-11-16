@@ -17,6 +17,12 @@
 
   Controller.$inject = [];
 
+  /**
+   * Controller
+   *
+   * @class Controller
+   * @constructor
+   */
   function Controller() {
     var ctrl = this;
     ctrl.$routerOnActivate = function (next) {
