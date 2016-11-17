@@ -5,10 +5,22 @@
     padding: 0.2em 0;
 }
 
+/* Setting the font airbus */
+@font-face {
+    font-family: Airbus;
+    src: url('../fonts/aispec.ttf');
+    font-size: 14px;
+}
+
 /* Space out content a bit */
 body {
-    padding-top: 70px;
+    padding-top: 120px;
     padding-bottom: 20px;
+    font-family: Airbus;
+}
+
+.app-view{
+    animation: fadeIn 0.8s;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -20,9 +32,7 @@ footer {
 
 /* Custom page footer */
 footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+
 }
 
 @media (max-width: 34em) {
@@ -40,13 +50,40 @@ footer {
 
 /* Header */
 .navbar{
-    background-color: #7a9ebd;
+    margin-bottom: 10px;
+    background-color: #3560a5;
+    color: #fff;
+    border-bottom: 5px solid #274982;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img-navbar{
+    max-width: 100%;
+    height: 80px;
+}
+.header-left{
+    min-width: 160px
+}
+.header-title{
+    font-size: 3.5rem;
+    height: 40px;
+    margin: auto;
+}
+.header-right{
+    min-width: 160px
+}
+.text-navbar{
+    color: #3560a5;
+    margin: 0 10px;
 }
 
 /* Home */
 .container-tiles{
     width:100%;
     margin: 50px auto;
+    border-radius: 5px;
     overflow:hidden;
     padding:10px;
     background-color: #eee;
@@ -70,15 +107,33 @@ footer {
     width: 40px;
     text-overflow: ellipsis;
 }
+.app-text-tile{
+    min-width: 200px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    padding-top: 10px;
+}
 .bubbles{
     display:flex;
+    justify-content: space-between;
+}
+.button-link-tile{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    font-size: 24px;
+    min-width: 200px;
+    max-width: 200px;
 }
 .bubble {
     margin: 0 30px;
     border-radius: 20px;
     width: 40px;
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     height: 40px;
     border: 4px solid #ccc;
 }
@@ -103,6 +158,8 @@ footer {
 }
 .inner-tile-container .fa{
     padding: 5px;
+    padding-top: 10px;
+    text-decoration: none;
 }
 .inner-tile-container a{
     color:inherit;

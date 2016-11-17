@@ -26,8 +26,7 @@
    * @main Airbus_Dev_Front
    * @constructor
    */
-  function AppController ($rootRouter, $http) {
-    $http.get('http://localhost:5601/app/');
+  function AppController ($rootRouter) {
     $rootRouter.config([
       {
         path: '/home',
@@ -41,7 +40,7 @@
         component: 'monitoring'
       },
       {
-        path: '/kibana',
+        path: '/graph',
         name:'Kibana',
         component: 'kibana'
       }

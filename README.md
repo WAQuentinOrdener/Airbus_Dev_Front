@@ -20,10 +20,12 @@ yo angular-eggs:service [name]
 yo angular-eggs:resource [name]
 yo angular-eggs:server [name]
 
-After creating new component : -
+###############
+
+After creating new component : 
  - Intregating him to index.html / main.js
 
-## popover.js commented in index.html since loader not modulable
+/!\ popover.js commented in index.html since loader not modulable
 
 ## Build
 
