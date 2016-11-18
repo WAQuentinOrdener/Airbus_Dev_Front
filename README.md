@@ -31,5 +31,6 @@ After creating new component :
 
 remember : 
 
- - place your fonts from font-awesome manually in dist/fonts
+ - place your fonts from font-awesome + aribus manually in dist/fonts
+ - care images bad compression making
  - copy/paste the files from folder dist in www folder

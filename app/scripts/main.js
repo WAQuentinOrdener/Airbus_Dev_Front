@@ -13,11 +13,12 @@
       'Airbus_Dev_Front.components.home',
       'Airbus_Dev_Front.components.applicationTiles',
       'Airbus_Dev_Front.components.monitoring',
+      'Airbus_Dev_Front.components.searchbar',
       'Airbus_Dev_Front.components.kibana'
     ])
     .controller('AppController', AppController);
 
-  AppController.$inject = ['$rootRouter', '$http'];
+  AppController.$inject = ['$rootRouter'];
 
   /**
    * AppController

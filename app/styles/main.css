@@ -21,6 +21,7 @@ body {
 
 .app-view{
     animation: fadeIn 0.8s;
+    margin-top: 30px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -59,13 +60,16 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+
 .img-navbar{
     max-width: 100%;
     height: 80px;
 }
+
 .header-left{
     min-width: 160px
 }
+
 .header-title{
     font-size: 3.5rem;
     height: 40px;
@@ -74,18 +78,25 @@ footer {
 .header-right{
     min-width: 160px
 }
+.header-right span{
+    float: right;
+    font-size:1.5rem;
+}
+
 .text-navbar{
     color: #3560a5;
     margin: 0 10px;
 }
 
 /* Home */
+
+/* App container */
 .container-tiles{
     width:100%;
     margin: 50px auto;
     border-radius: 5px;
     overflow:hidden;
-    padding:10px;
+    padding:50px 10px;
     background-color: #eee;
 }
 .tile-layout{
@@ -137,10 +148,6 @@ footer {
     height: 40px;
     border: 4px solid #ccc;
 }
-.bubble:hover{
-    border: 4px solid #0275d8;
-    cursor:pointer
-}
 .red{
     background-color: #d24;
 }
@@ -165,17 +172,68 @@ footer {
     color:inherit;
 }
 
-/* Monitoring view */
-.table-monitoring{
-    width: 90%;
-    margin:50px auto;
+/* Searchbar */
+
+searchbar {
+    float: right;
+    padding: 15px;
+    margin: 15px 0;
+    background: #eee;
+    border-radius: 5px;
 }
-.table-row-monitoring td,th{
-    padding:10px;
+.searchbar-container {
+    display: flex;
 }
-.table-row-even{
-    background-color: #eee;
+.text-searchbar{
+    align-self:center;
+    padding: 5px;
+    height: 30px;
 }
-.table-row-odd{
-    background-color: #ddd;
+.searchbar-container input{
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #aaa;
+    padding-left: 5px;
+    font-family: sans-serif;
+}
+.search-btn{
+    border: 1px solid #aaa;
+    background: #fff;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+    padding: 8px 10px;
+    height: 35px;
+}
+.search-btn:hover{
+    box-shadow: 0px 0px 5px 1px #ddd;
+    cursor: pointer;
+}
+.search-btn:active{
+    box-shadow: inset 0px 0px 5px 1px #ccc;
+}
+.result-panel {
+    position: absolute;
+    margin-top: 5px;
+    width: 200px;
+    padding: 5px 0;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #aaa;    
+    max-height: 14rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.result-panel::-webkit-scrollbar {
+    display: none;
+}
+.results-elem {
+    padding: 0px 5px;
+    border-top: 1px solid #aaa;
+    height: 25px;
+    font-family: monospace;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.results-elem:hover,  .results-elem:focus{
+    background: rgba(53,96,165,0.6);
+    cursor:pointer;
 }

@@ -29,7 +29,7 @@
       return $sce.trustAsResourceUrl(url);
     };
     ctrl.$routerOnActivate = function (next) {
-      ctrl.appCode = next.params.appCode;      
+      ctrl.appCode = next.params.appCode;
       ctrl.url = 'Oops there was an error';
       if (typeof ctrl.appCode !== 'undefined') {
         ctrl.url = "https://fr0-vsiaas-3215.eu-v.airbus-v.corp/1V73/graph/graph.html?xcode=" + ctrl.appCode + "_FRA";

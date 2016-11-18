@@ -31,35 +31,35 @@
         'errInfra': 20,
         'errSem': 30,
         'errAvailability': 0
-      }, 
+      },
       {
         'codeApp': 'F760',
         'nameApp': 'DDM',
         'errInfra': 15,
         'errSem': 0,
         'errAvailability': 10
-      }, 
+      },
       {
         'codeApp': 'A282',
         'nameApp': 'TDD',
         'errInfra': 30,
         'errSem': 20,
         'errAvailability': 5
-      }, 
+      },
       {
         'codeApp': '1Q09',
         'nameApp': 'ACKS',
         'errInfra': 5,
         'errSem': 25,
         'errAvailability': 30
-      }, 
+      },
       {
         'codeApp': 'T000',
         'nameApp': 'Spares Portal',
         'errInfra': 0,
         'errSem': 0,
         'errAvailability': 0
-      }, 
+      },
       {
         'codeApp': '1T40',
         'nameApp': 'ADNS',

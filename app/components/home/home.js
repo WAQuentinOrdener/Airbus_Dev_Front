@@ -56,9 +56,9 @@
       }
     };
     $http(req).then(function successCallback(response) {
-      console.log('success', response);
+      ctrl.datas = response.data;
     }, function errorCallback(response) {
-      console.log('error', response)
+      console.log('error', response);
     });
 
     ctrl.name = 'Home';

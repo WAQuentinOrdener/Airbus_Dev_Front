@@ -1,0 +1,16 @@
+<span class="text-searchbar">Search by code app : </span>
+<div class="searchbar-container">
+    <input type="text" name="inputSearch" placeholder="Type your research..."
+           ng-keydown="$ctrl.focusResults($event);$ctrl.inResultsTab = true"
+           ng-model="$ctrl.searching" 
+           ng-focus="$ctrl.focus()"
+           ng-click="$ctrl.doSearch = true">
+    <span class="search-btn fa fa-close" ng-click="$ctrl.doSearch = false"></span>
+</div>
+<ul class="result-panel"
+    ng-show="$ctrl.doSearch">
+    <li class="results-elem" tabIndex="0"
+        ng-repeat="result in $ctrl.tabResults | filter:$ctrl.searching" 
+        ng-keydown="$ctrl.navigateResults($event, result)"
+        ng-click="$ctrl.selectResult(result)">{{result.key}}</li>
+</ul>
