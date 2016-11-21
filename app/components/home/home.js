@@ -25,6 +25,11 @@
    */
   function Controller($http) {
     var ctrl = this;
+    ctrl.searchAppCode = "";
+    ctrl.updateList = function (newAppCode) {
+      console.log(newAppCode);
+      //ctrl.searchAppCode = newAppCode;
+    };
     var req = {
       method: 'POST',
       url: 'http://localhost:9201/logstash*/_search?pretty',

@@ -13,7 +13,9 @@
             controller: Controller,
             templateUrl: 'components/searchbar/searchbar.html',
             bindings: {
-              datas: '<'
+              datas: '<',
+              research: '<',
+              onUpdate: '&'
             },
             $canActivate: $canActivate
           });
@@ -22,6 +24,7 @@
 
   function Controller() {
     var ctrl = this;
+    console.log(ctrl);
     // Initiate values
     ctrl.doSearch = false;
     ctrl.tabResults = ctrl.datas.aggregations.process_ids.buckets;
