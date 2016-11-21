@@ -12,6 +12,7 @@
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -27,9 +28,7 @@
 
         <div class="container-fluid">
 
-            <div ng-outlet>
-                <application-tiles></application-tiles>
-            </div>
+            <div ng-outlet class="app-view"></div>
 
         </div>
 
@@ -85,7 +84,7 @@
         <script src="components/home/home.js"></script>
         <script src="components/kibana/kibana.js"></script>
         <script src="components/monitoring/monitoring.js"></script>
-        <script src="components/tile/tile.js"></script>
+        <script src="components/searchbar/searchbar.js"></script>
         <script src="scripts/config.js"></script>
         <script src="service/gruntfiles/gruntfiles.js"></script>
         <!-- endinjector -->

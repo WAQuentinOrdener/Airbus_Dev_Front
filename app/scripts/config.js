@@ -6,7 +6,7 @@
     .module('Airbus_Dev_Front.config', [])
     .config(AppConfig);
 
-  function AppConfig($locationProvider) {
+  function AppConfig($locationProvider, $httpProvider) {
     /*
       # Hashbang Mode
       http://www.example.com/#/aaa/
@@ -14,7 +14,8 @@
       http://www.example.com/aaa/
     */
     $locationProvider.html5Mode(true);
+    $httpProvider.defaults.useXDomain = true;
   }
 
-  AppConfig.$inject = ['$locationProvider'];
+  AppConfig.$inject = ['$locationProvider', '$httpProvider'];
 })();
