@@ -11,5 +11,5 @@
     <li class="results-elem" tabIndex="0"
         ng-repeat="result in searchBar.tabResults | filter : searchBar.searching" 
         ng-keydown="searchBar.navigateResults($event, result)"
-        ng-click="searchBar.selectResult(result)">{{result.key}}</li>
+        ng-click="searchBar.selectResult(result)">{{result.codeApp }} - {{result.nameApp }}</li>
 </ul>

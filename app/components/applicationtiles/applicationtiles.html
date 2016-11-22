@@ -5,7 +5,7 @@
         <span class="err-text">Incidents</span>
         <span class="err-text">Availability</span>
     </div>
-    <div class="tile-layout" ng-repeat="result in appTiles.json">
+    <div class="tile-layout" ng-repeat="result in appTiles.json | filter: appTiles.filter">
         <div class="tile">
             <div class="inner-tile-container">
                 <div class="app-text-tile">

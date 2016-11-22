@@ -28,14 +28,39 @@
     // Initiate values
     ctrl.searching = '';
     ctrl.doSearch = false;
-    ctrl.tabResults = ctrl.datas.aggregations.process_ids.buckets;
+    // Json to test filter in tabResults applicationTiles
+    ctrl.json = [{
+        'codeApp': 'A420',
+        'nameApp': 'CDIS'
+      },
+      {
+        'codeApp': 'F760',
+        'nameApp': 'DDM'
+      },
+      {
+        'codeApp': 'A282',
+        'nameApp': 'TDD'
+      },
+      {
+        'codeApp': '1Q09',
+        'nameApp': 'ACKS'
+      },
+      {
+        'codeApp': 'T000',
+        'nameApp': 'Spares Portal'
+      },
+      {
+        'codeApp': '1T40',
+        'nameApp': 'ADNS'
+      }];
+    //ctrl.tabResults = ctrl.datas.aggregations.process_ids.buckets;
+    ctrl.tabResults = ctrl.json;
     // Set selection as default text + set value to searchDone hiding results
     ctrl.selectResult = function (item) {
       var index = ctrl.tabResults.indexOf(item);
-      ctrl.searching = ctrl.tabResults[index].key;
+      ctrl.searching = ctrl.tabResults[index].codeApp;
       ctrl.filter = ctrl.searching;
       ctrl.onChange({newFilter: ctrl.filter});
-      ctrl.doSearch = false;
       document.getElementById('search-input').focus();
     };
 

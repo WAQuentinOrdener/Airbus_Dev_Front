@@ -30,7 +30,6 @@
    */
   function Controller() {
     var ctrl = this;
-    console.log(ctrl.filter);
     ctrl.json = [{
         'codeApp': 'A420',
         'nameApp': 'CDIS',
