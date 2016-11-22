@@ -11,11 +11,12 @@
           .module('Airbus_Dev_Front.components.searchbar', [])
           .component('searchbar', {
             controller: Controller,
+            controllerAs: 'searchBar',
             templateUrl: 'components/searchbar/searchbar.html',
             bindings: {
               datas: '<',
-              research: '<',
-              onUpdate: '&'
+              filter: '<',
+              onChange: '&'
             },
             $canActivate: $canActivate
           });
@@ -24,24 +25,33 @@
 
   function Controller() {
     var ctrl = this;
-    console.log(ctrl);
     // Initiate values
+    ctrl.searching = '';
     ctrl.doSearch = false;
     ctrl.tabResults = ctrl.datas.aggregations.process_ids.buckets;
     // Set selection as default text + set value to searchDone hiding results
     ctrl.selectResult = function (item) {
       var index = ctrl.tabResults.indexOf(item);
       ctrl.searching = ctrl.tabResults[index].key;
+      ctrl.filter = ctrl.searching;
+      ctrl.onChange({newFilter: ctrl.filter});
       ctrl.doSearch = false;
+      document.getElementById('search-input').focus();
     };
+
     // Set focus on results li
     ctrl.focusResults = function ($event) {
       if ($event.keyCode === 40) {
         var x = document.getElementsByClassName('results-elem');
         x[0].focus();
       }
+      // When press enter with no result to reinit
+      if ($event.keyCode === 13) {
+        ctrl.filter = ctrl.searching;
+        ctrl.onChange({newFilter: ctrl.filter});
+      }
     };
-    // keyup/keydown navigation
+    // keyup/keydown + enter navigation
     ctrl.navigateResults = function ($event, result) {
       switch ($event.keyCode) {
         case 38:
@@ -63,13 +73,11 @@
           break;
       }
     };
-    ctrl.focus = function () {
-      if (ctrl.inResultsTab) {
-        // Search not done show results
-        ctrl.doSearch = true;
-      } else {
-        ctrl.doSearch = false;
-      }
+    ctrl.reinit = function () {
+      ctrl.doSearch = false;
+      ctrl.searching = '';
+      ctrl.filter = '';
+      ctrl.onChange({newFilter: ctrl.filter});
     };
     ctrl.name = 'searchbar ';
   }

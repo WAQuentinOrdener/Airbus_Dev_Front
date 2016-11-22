@@ -1,2 +1,9 @@
-<searchbar ng-if="$ctrl.datas" on-update="$ctrl.updateList($ctrl.searchAppCode)" research="$ctrl.searchAppCode" datas="$ctrl.datas"></searchbar>
-<application-tiles ng-if="$ctrl.datas"></application-tiles>
+<searchbar ng-if="home.datas"
+           on-change="home.updateList(newFilter)"
+           filter="home.filter"
+           datas="home.datas">
+</searchbar>
+<application-tiles ng-if="home.datas"
+                   filter="home.filter"
+                   on-filter-change="home.filter">
+</application-tiles>

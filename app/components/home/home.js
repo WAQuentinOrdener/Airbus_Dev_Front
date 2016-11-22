@@ -11,6 +11,7 @@
           .module('Airbus_Dev_Front.components.home', [])
           .component('home', {
             controller: Controller,
+            controllerAs: 'home',
             templateUrl: 'components/home/home.html',
             $canActivate: $canActivate
           });
@@ -25,10 +26,10 @@
    */
   function Controller($http) {
     var ctrl = this;
-    ctrl.searchAppCode = "";
-    ctrl.updateList = function (newAppCode) {
-      console.log(newAppCode);
-      //ctrl.searchAppCode = newAppCode;
+    ctrl.filter = '';
+    // Changing filter with searchBar
+    ctrl.updateList = function (newFilter) {
+      ctrl.filter = newFilter;
     };
     var req = {
       method: 'POST',

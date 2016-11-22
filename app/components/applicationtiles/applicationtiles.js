@@ -11,11 +11,16 @@
           .module('Airbus_Dev_Front.components.applicationTiles', [])
           .component('applicationTiles', {
             controller: Controller,
+            controllerAs: 'appTiles',
             templateUrl: 'components/applicationtiles/applicationtiles.html',
+            bindings: {
+              filter: '<',
+              onFilterChange: '&'
+            },
             $canActivate: $canActivate
           });
 
-  Controller.$inject = [];
+  Controller.$inject = ['$scope'];
 
   /**
    * Controller
@@ -25,6 +30,7 @@
    */
   function Controller() {
     var ctrl = this;
+    console.log(ctrl.filter);
     ctrl.json = [{
         'codeApp': 'A420',
         'nameApp': 'CDIS',
