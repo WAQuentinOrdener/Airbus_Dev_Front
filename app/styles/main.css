@@ -91,15 +91,37 @@ footer {
     margin: 0 10px;
 }
 
-.logon-btn {
+.logon-btn{
     border-radius: 20px;
     padding: 5px;
     float: right;
-    outline: none!important;
+    outline: none;
     background-color: #2b96f3;
 }
+.refresh-container{
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    padding: 5px;
+    font-family: Arial;
+}
+.btn-refresh {
+    background: none;
+    float: right;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    padding: 0;
+}
+.btn-refresh:focus, .btn-refresh i:focus{
+    outline: none!important;
+}
+.refresh-red{
+    color:#ea0f0f;
+}
+
 .logon-btn:focus{
     background-color: #2b96f3;
+    outline: none!important;
 }
 
 .logon-modal{
