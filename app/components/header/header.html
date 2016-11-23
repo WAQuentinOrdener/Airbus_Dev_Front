@@ -1,13 +1,18 @@
 <header class="navbar navbar-light navbar-fixed-top bg-faded bd-navbar">
     <div class="header-left">
-        <img class="img-responsive img-navbar" src="images/logo_white.png"/>
+        <a href="/">
+            <img class="img-responsive img-navbar" ng-src="images/logo_white.png"/>
+        </a>
     </div>
     <div class="header-title">
         <span>CSM Tool</span>
     </div>
     <div class="header-right">
-        <span class="fa fa-info-circle"></span>
+        <button type="button" class="logon-btn btn btn-primary" data-toggle="modal" data-target="#loginModal">
+            <span class="fa fa-user-circle"></span>
+        </button>
     </div>
 </header>
 <a class="navbar-brand text-navbar" href="/"><span class="fa fa-home"></span> Home</a>
 <hr style="width: 95%;">
+<login></login>

@@ -17,8 +17,11 @@ body {
     padding-top: 120px;
     padding-bottom: 20px;
     font-family: Airbus;
+    overflow: auto;
 }
-
+body::-webkit-scrollbar {
+    display: none;
+}
 .app-view{
     animation: fadeIn 0.8s;
     margin-top: 30px;
@@ -88,7 +91,42 @@ footer {
     margin: 0 10px;
 }
 
+.logon-btn {
+    border-radius: 20px;
+    padding: 5px;
+    float: right;
+    outline: none!important;
+    background-color: #2b96f3;
+}
+.logon-btn:focus{
+    background-color: #2b96f3;
+}
+
+.logon-modal{
+    margin-top: 250px;
+    font-family: Arial;
+}
+.modal-logon-margin {
+    margin: 10px;
+}
+.logon-modal i.fa {
+    width: 1rem;
+}
+
 /* Home */
+
+/* Loader */
+
+.loader-container{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10rem;
+}
+.loader-home{
+    height: 100%;
+    width: 10rem;
+}
 
 /* App container */
 .container-tiles{

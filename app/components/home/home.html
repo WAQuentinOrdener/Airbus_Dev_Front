@@ -7,3 +7,8 @@
                    filter="home.filter"
                    on-filter-change="home.filter">
 </application-tiles>
+<div class="loader-container">
+    <img class="loader-home"
+         ng-if="!home.datas"
+         ng-src="images/ajax-loader.gif" />
+</div>
