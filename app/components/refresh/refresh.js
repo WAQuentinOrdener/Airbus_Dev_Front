@@ -8,7 +8,7 @@
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.refresh', ['ngRoute'])
+          .module('Airbus_Dev_Front.components.refresh', [])
           .component('refresh', {
             controller: Controller,
             controllerAs: 'refresh',
@@ -16,9 +16,9 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$interval', '$route', '$routeParams'];
+  Controller.$inject = ['$interval', '$rootScope'];
 
-  function Controller($interval, $route) {
+  function Controller($interval, $rootRouter, $rootScope, $timeout) {
     var ctrl = this;
     // Set up reload to false at init page
     ctrl.isActive = false;
@@ -26,8 +26,8 @@
       switch (val) {
         case 30:
           ctrl.intervalReloadVal = 1000;
-          console.log('30sec');
-          $route.go('/');
+          $rootScope.refresh = true;
+          setTimeout(function() { $rootScope.refresh = false; $rootScope.$digest();}, 100);
           break;
         case 1:
           ctrl.intervalReloadVal = 2000;
@@ -44,9 +44,9 @@
         default:
           break;
       }
-      if (ctrl.intervalReloadVal !== false) {
-      }
     };
+      if (ctrl.intervalReloadVal) {
+      }
     ctrl.name = 'refresh ';
   }
 

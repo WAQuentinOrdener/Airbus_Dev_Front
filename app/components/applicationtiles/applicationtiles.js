@@ -20,7 +20,7 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$scope'];
+  Controller.$inject = [];
 
   /**
    * Controller
