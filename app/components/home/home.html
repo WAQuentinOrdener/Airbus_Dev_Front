@@ -1,14 +1,14 @@
-<searchbar ng-if="home.datas"
+<searchbar ng-if="home.datas && !$root.refresh"
            on-change="home.updateList(newFilter)"
            filter="home.filter"
            datas="home.datas">
 </searchbar>
-<application-tiles ng-if="home.datas"
+<application-tiles ng-if="home.datas && !$root.refresh"
                    filter="home.filter"
                    on-filter-change="home.filter">
 </application-tiles>
 <div class="loader-container">
     <img class="loader-home"
-         ng-if="!home.datas"
+         ng-if="!home.datas || $root.refresh"
          ng-src="images/ajax-loader.gif" />
 </div>
