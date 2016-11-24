@@ -12,7 +12,11 @@
       'Airbus_Dev_Front.config',
       'Airbus_Dev_Front.components.home',
       'Airbus_Dev_Front.components.applicationTiles',
-      'Airbus_Dev_Front.components.monitoring'
+      'Airbus_Dev_Front.components.monitoring',
+      'Airbus_Dev_Front.components.searchbar',
+      'Airbus_Dev_Front.components.login',
+      'Airbus_Dev_Front.components.refresh',
+      'Airbus_Dev_Front.components.kibana'
     ])
     .controller('AppController', AppController);
 
@@ -36,11 +40,12 @@
       {
         path: '/monitoring',
         name:'Monitoring',
-        component: 'monitoring', 
-        routeParams:{
-          nameApp: '',
-          err: false
-        }
+        component: 'monitoring'
+      },
+      {
+        path: '/graph',
+        name:'Kibana',
+        component: 'kibana'
       }
     ]);
   }

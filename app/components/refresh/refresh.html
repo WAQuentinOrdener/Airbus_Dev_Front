@@ -1,0 +1,12 @@
+<div class="dropdown refresh-container">
+  <button class="btn btn-refresh" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-refresh refresh-icon"
+         ng-class="{'refresh-red' : !refresh.isActive, 'refresh-green' : refresh.isActive}"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" ng-click="refresh.activeRefresh(0)">15s</a>
+    <a class="dropdown-item" ng-click="refresh.activeRefresh(1)">30s</a>
+    <a class="dropdown-item" ng-click="refresh.activeRefresh(2)">1min</a>
+    <a class="dropdown-item" ng-click="refresh.activeRefresh(3)">No refresh</a>
+  </div>
+</div>

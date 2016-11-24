@@ -4,7 +4,9 @@
   "dependencies": {
     "bootstrap": "~4.0.0-alpha.2",
     "angular": "~1.5.7",
-    "angular-resource": "~1.5.7"
+    "angular-resource": "~1.5.7",
+    "components-font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2"
   },
   "overrides": {
     "bootstrap": {

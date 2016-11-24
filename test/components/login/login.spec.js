@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  describe('Component: contact', function () {
+  describe('Component: login', function () {
 
     var controller, compile, rootScope;
 
-    beforeEach(module('Airbus_Dev_Front.components.contact'));
+    beforeEach(module('Airbus_Dev_Front.components.login'));
     beforeEach(module('templates'));
 
     beforeEach(inject(function($rootScope, $compile, $componentController) {
@@ -14,13 +14,13 @@
       rootScope = $rootScope;
     }));
 
-    describe('Contact Controller', function() {
+    describe('Login Controller', function() {
       it('Test Case', function () {
         var $scope = {};
 
         // Controllerの生成
-        var ctrl = controller('contact', {$scope: $scope});
-        expect(ctrl.name).toEqual('Contact');
+        var ctrl = controller('login', {$scope: $scope});
+        expect(ctrl.name).toEqual('login ');
 
         // $onInitの実行
         ctrl.$onInit();
@@ -29,9 +29,9 @@
     });
 
     // selector
-    describe('Contact templateUrl', function() {
+    describe('Login templateUrl', function() {
       it('Test Case', function () {
-        var factory = compile('<contact></contact>');
+        var factory = compile('<login></login>');
         var scope = rootScope.$new();
         var element = factory(scope);
         scope.$digest();
@@ -40,3 +40,4 @@
     });
   });
 })();
+

@@ -1,18 +1,38 @@
-<div class="container-tiles">
-    <div class="tile-layout col-md-3" ng-repeat="result in $ctrl.results">
-        <div class="tile" ng-class="{ 'amber' : result.err === true, 'green' : result.err === false}">
-            <p>
-                {{ result.nameApp}} ---- Date :  {{ result.date}}
-            </p>
-            <p>
-                More than 2 incidents : {{ result.err }}
-            </p>
-            <hr>
+<div id="application-tiles" class="container-tiles">
+    {{ (appTiles.filter !== '') ? 'results filter by app code : ' + appTiles.filter : ''}}
+    <div class="err-text-container">
+        <span class="err-text">Infra</span>
+        <span class="err-text">Incidents</span>
+        <span class="err-text">Availability</span>
+    </div>
+    <div class="tile-layout" ng-repeat="result in appTiles.json| filter: appTiles.filter">
+        <div class="tile">
             <div class="inner-tile-container">
-                <a ng-link="['Monitoring']">
-                    <span class="fa fa-eye tile-inner-flex-start" ></span>
-                </a>
-                <span class="fa fa-bar-chart tile-inner-flex-end"></span>
+                <div class="app-text-tile">
+                    <span>{{ result.codeApp}} - {{ result.nameApp}}</span>
+                </div>
+                <div class="bubbles">
+                    <span class="bubble" 
+                          ng-class="{'red' : result.errInfra > 20, 'amber' : result.errInfra <= 20 && result.errInfra > 10, 'green' : result.errInfra <= 10}">
+                        {{ result.errInfra}}
+                    </span>
+                    <span class="bubble"
+                          ng-class="{'red' : result.errSem > 20, 'amber' : result.errSem <= 20 && result.errSem > 10, 'green' : result.errSem <= 10}">
+                        {{ result.errSem}}
+                    </span>
+                    <span class="bubble"
+                          ng-class="{'red' : result.errAvailability > 20, 'amber' : result.errAvailability <= 20 && result.errAvailability > 10, 'green' : result.errAvailability <= 10}">
+                        {{ result.errAvailability}}
+                    </span>
+                </div>
+                <div class="button-link-tile">
+                    <a ng-link="['Monitoring', {appCode: result.codeApp}]" ng-mouseenter="appTiles.animeDashboard($index)" ng-mouseleave="appTiles.removeDashAnime($index)">
+                        <span class="fa fa-dashboard"></span>
+                    </a>
+                    <a ng-link="['Kibana', {appCode: result.codeApp}]" ng-mouseenter="appTiles.animeGraph($index)" ng-mouseleave="appTiles.removeGraphAnime($index)">
+                        <span class="fa fa-bar-chart"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
