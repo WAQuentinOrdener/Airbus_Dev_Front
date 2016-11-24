@@ -16,37 +16,52 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$interval', '$rootScope'];
+  Controller.$inject = ['$rootScope'];
 
-  function Controller($interval, $rootRouter, $rootScope, $timeout) {
+  function Controller($rootScope) {
     var ctrl = this;
     // Set up reload to false at init page
     ctrl.isActive = false;
+    $rootScope.refresh = false;
+    ctrl.setReload = function () {
+      if (ctrl.intervalReloadVal) {
+        ctrl.isActive = true;
+        ctrl.reloading = setInterval(function () {
+          $rootScope.refresh = true;
+          $rootScope.$digest();
+          setTimeout(function () {
+            $rootScope.refresh = false;
+            $rootScope.$digest();
+          }, 800);
+        }, ctrl.intervalReloadVal);
+      } else {
+        $rootScope.refresh = false;
+        ctrl.isActive = false;
+        clearInterval(ctrl.reloading);
+      }
+    };
     ctrl.activeRefresh = function (val) {
       switch (val) {
-        case 30:
-          ctrl.intervalReloadVal = 1000;
-          $rootScope.refresh = true;
-          setTimeout(function() { $rootScope.refresh = false; $rootScope.$digest();}, 100);
+        case 0:
+          ctrl.intervalReloadVal = 15000;
+          ctrl.setReload();
           break;
         case 1:
-          ctrl.intervalReloadVal = 2000;
-          console.log('1min');
+          ctrl.intervalReloadVal = 30000;
+          ctrl.setReload();
           break;
         case 2:
-          ctrl.intervalReloadVal = 3000;
-          console.log('2min');
+          ctrl.intervalReloadVal = 60000;
+          ctrl.setReload();
           break;
-        case 0:
+        case 3:
           ctrl.intervalReloadVal = false;
-          console.log('No refresh');
+          ctrl.setReload();
           break;
         default:
           break;
       }
     };
-      if (ctrl.intervalReloadVal) {
-      }
     ctrl.name = 'refresh ';
   }
 
