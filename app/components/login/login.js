@@ -24,13 +24,21 @@
     var ctrl = this;
     ctrl.name = 'login ';
     ctrl.checkUser = function (user, pwd) {
-      UsersService.loginTest(user, pwd);
-      ctrl.isLogged = UsersService;
-      ctrl.isVisible = true;
-      $timeout(function () {
-        ctrl.isVisible = false;
-        $('#loginModal').modal('hide');
-      }, 1500);
+      UsersService.loginTest(user, pwd).then(function () {
+        ctrl.isVisible = true;
+        if (UsersService.loggedIn) {
+          ctrl.wrongUsername = false;
+          $timeout(function () {
+            ctrl.isVisible = false;
+            $('#loginModal').modal('hide');
+          }, 800);
+        } else {
+          ctrl.wrongUsername = true;
+          $timeout(function () {
+            ctrl.isVisible = false;
+          }, 800);
+        }
+      });
     };
   }
 
