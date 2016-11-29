@@ -26,8 +26,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary modal-logon-margin" 
                             ng-disabled="form.$invalid">Login</button>
-                    <span class="alert alert-success" ng-show="login.isLogged.loggedIn && login.isVisible">You're logged</span>
-                    <span class="alert alert-danger" ng-show="!login.isLogged.loggedIn && login.isVisible">Wrong username</span>
+                    <span class="alert alert-success" ng-show="!login.wrongUsername && login.isVisible">You're logged</span>
+                    <span class="alert alert-danger" ng-show="login.wrongUsername && login.isVisible">Wrong username</span>
                     <span></span>
                 </form>
             </div>
