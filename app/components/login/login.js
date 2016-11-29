@@ -31,12 +31,12 @@
           $timeout(function () {
             ctrl.isVisible = false;
             $('#loginModal').modal('hide');
-          }, 1500);
+          }, 800);
         } else {
           ctrl.wrongUsername = true;
           $timeout(function () {
             ctrl.isVisible = false;
-          }, 1500);
+          }, 800);
         }
       });
     };

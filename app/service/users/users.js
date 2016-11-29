@@ -35,7 +35,7 @@
       loginTest: function (user, pwd) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/_search?pretty',
+          url: 'http://localhost:9201/.csmtool/_search',
           data: {
             "query": {
               "bool": {
@@ -65,7 +65,7 @@
       getFavs: function (user) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/_search?pretty',
+          url: 'http://localhost:9201/.csmtool/_search',
           data: {
             "query": {
               "bool": {
@@ -81,6 +81,22 @@
             usersService.tabFav.push(response.data.hits.hits[0]._source.fav[i]);
           }
           return usersService.tabFav;
+        }, function errorCallback(response) {
+          console.log('err', response);
+        });
+      },
+      // Update tabFav for users
+      updateFavs: function (newFavs, user) {
+        var req = {
+          method: 'POST',
+          url: 'http://localhost:9201/.csmtool/users/' + user + '/_update',
+          data: {
+            "doc": {
+              'fav': newFavs
+            }
+          }
+        };
+        $http(req).then(function successCallback(response) {
         }, function errorCallback(response) {
           console.log('err', response);
         });
