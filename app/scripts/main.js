@@ -7,18 +7,18 @@
   'use strict';
 
   angular
-    .module('Airbus_Dev_Front', [
-      'ngComponentRouter',
-      'Airbus_Dev_Front.config',
-      'Airbus_Dev_Front.components.home',
-      'Airbus_Dev_Front.components.applicationTiles',
-      'Airbus_Dev_Front.components.monitoring',
-      'Airbus_Dev_Front.components.searchbar',
-      'Airbus_Dev_Front.components.login',
-      'Airbus_Dev_Front.components.refresh',
-      'Airbus_Dev_Front.components.kibana'
-    ])
-    .controller('AppController', AppController);
+          .module('Airbus_Dev_Front', [
+            'ngComponentRouter',
+            'Airbus_Dev_Front.config',
+            'Airbus_Dev_Front.components.home',
+            'Airbus_Dev_Front.components.applicationTiles',
+            'Airbus_Dev_Front.components.monitoring',
+            'Airbus_Dev_Front.components.searchbar',
+            'Airbus_Dev_Front.components.login',
+            'Airbus_Dev_Front.components.refresh',
+            'Airbus_Dev_Front.components.kibana'
+          ])
+          .controller('AppController', AppController);
 
   AppController.$inject = ['$rootRouter'];
 
@@ -29,22 +29,28 @@
    * @main Airbus_Dev_Front
    * @constructor
    */
-  function AppController ($rootRouter) {
+  function AppController($rootRouter) {
+    if (!String.prototype.startsWith) {
+      String.prototype.startsWith = function (searchString, position) {
+        position = position || 0;
+        return this.substr(position, searchString.length) === searchString;
+      };
+    }
     $rootRouter.config([
       {
         path: '/home',
-        name:'Home',
+        name: 'Home',
         component: 'home',
         useAsDefault: true
       },
       {
         path: '/monitoring',
-        name:'Monitoring',
+        name: 'Monitoring',
         component: 'monitoring'
       },
       {
         path: '/graph',
-        name:'Kibana',
+        name: 'Kibana',
         component: 'kibana'
       }
     ]);

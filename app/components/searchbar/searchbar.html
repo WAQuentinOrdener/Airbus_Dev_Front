@@ -3,13 +3,14 @@
     <input type="text" id="search-input" name="inputSearch" placeholder="Type your research..."
            ng-keydown="searchBar.focusResults($event)"
            ng-model="searchBar.searching"
+           ng-blur="searchBar.unsetFocus()"
            ng-click="searchBar.doSearch = true">
     <span class="search-btn fa fa-close" ng-click="searchBar.reinit()"></span>
 </div>
 <ul class="result-panel"
     ng-show="searchBar.doSearch">
     <li class="results-elem" tabIndex="0"
-        ng-repeat="result in searchBar.tabResults | filter : searchBar.searching" 
+        ng-repeat="result in searchBar.appsActive | filter : searchBar.searching" 
         ng-keydown="searchBar.navigateResults($event, result)"
-        ng-click="searchBar.selectResult(result)">{{result.codeApp }} - {{result.nameApp }}</li>
+        ng-click="searchBar.selectResult(result)">{{ result._source.code }} - {{ result._source.name }}</li>
 </ul>

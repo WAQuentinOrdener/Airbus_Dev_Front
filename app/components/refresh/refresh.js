@@ -16,9 +16,9 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$rootScope'];
+  Controller.$inject = ['$rootScope', '$interval', '$timeout'];
 
-  function Controller($rootScope) {
+  function Controller($rootScope, $interval, $timeout) {
     var ctrl = this;
     // Set up reload to false at init page
     ctrl.isActive = false;
@@ -26,18 +26,16 @@
     ctrl.setReload = function () {
       if (ctrl.intervalReloadVal) {
         ctrl.isActive = true;
-        ctrl.reloading = setInterval(function () {
+        ctrl.reloading = $interval(function () {
           $rootScope.refresh = true;
-          $rootScope.$digest();
-          setTimeout(function () {
+          $timeout(function () {
             $rootScope.refresh = false;
-            $rootScope.$digest();
           }, 800);
         }, ctrl.intervalReloadVal);
       } else {
         $rootScope.refresh = false;
         ctrl.isActive = false;
-        clearInterval(ctrl.reloading);
+        $interval.cancel(ctrl.reloading);
       }
     };
     ctrl.activeRefresh = function (val) {

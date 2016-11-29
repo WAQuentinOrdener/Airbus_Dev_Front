@@ -8,7 +8,9 @@
 /* Setting the font airbus */
 @font-face {
     font-family: Airbus;
-    src: url('../fonts/aispec.ttf');
+    src: url('../fonts/aispec.ttf'),
+        url('../fonts/AirbusSpecial.eot'),
+        url('../fonts/AirbusSpecial.woff');
     font-size: 14px;
 }
 
@@ -295,8 +297,11 @@ searchbar {
     border-radius: 5px;
     border: 1px solid #aaa;    
     max-height: 14rem;
+    transition: max-height 5s ease-in;
     overflow: auto;
-    overflow-x: hidden;
+}
+.result-panel.ng-hide-add, .result-panel.ng-hide-remove{
+    max-height: 0;
 }
 .result-panel::-webkit-scrollbar {
     display: none;

@@ -14,52 +14,44 @@
             controllerAs: 'searchBar',
             templateUrl: 'components/searchbar/searchbar.html',
             bindings: {
-              datas: '<',
               filter: '<',
               onChange: '&'
             },
             $canActivate: $canActivate
           });
 
-  Controller.$inject = [];
+  Controller.$inject = ['$http', '$timeout'];
 
-  function Controller() {
+  function Controller($http, $timeout) {
     var ctrl = this;
     // Initiate values
     ctrl.searching = '';
     ctrl.doSearch = false;
-    // Json to test filter in tabResults applicationTiles
-    ctrl.json = [{
-        'codeApp': 'A420',
-        'nameApp': 'CDIS'
-      },
-      {
-        'codeApp': 'F760',
-        'nameApp': 'DDM'
-      },
-      {
-        'codeApp': 'A282',
-        'nameApp': 'TDD'
-      },
-      {
-        'codeApp': '1Q09',
-        'nameApp': 'ACKS'
-      },
-      {
-        'codeApp': 'T000',
-        'nameApp': 'Spares Portal'
-      },
-      {
-        'codeApp': '1T40',
-        'nameApp': 'ADNS'
-      }];
-    //ctrl.tabResults = ctrl.datas.aggregations.process_ids.buckets;
-    ctrl.tabResults = ctrl.json;
+    ctrl.inResultsTab = false;
+    ctrl.req = {
+      method: 'POST',
+      url: 'http://localhost:9201/.csmtool/_search?pretty',
+      data: {
+        "query": {
+          "bool": {
+            "must": [
+              {"match": {"_type": "application"}},
+              {"match": {"active": true}}
+            ]
+          }
+        }}
+    };
+    $http(ctrl.req).then(function successCallback(response) {
+      ctrl.appsActive = response.data.hits.hits;
+    }, function errorCallback(response) {
+      console.log('err', response);
+    });
     // Set selection as default text + set value to searchDone hiding results
     ctrl.selectResult = function (item) {
-      var index = ctrl.tabResults.indexOf(item);
-      ctrl.searching = ctrl.tabResults[index].codeApp;
+      var index = ctrl.appsActive.indexOf(item);
+      ctrl.searching = ctrl.appsActive[index]._source.code;
       ctrl.filter = ctrl.searching;
+      ctrl.inResultsTab = false;
       ctrl.onChange({newFilter: ctrl.filter});
       document.getElementById('search-input').focus();
     };
@@ -68,6 +60,7 @@
     ctrl.focusResults = function ($event) {
       if ($event.keyCode === 40) {
         var x = document.getElementsByClassName('results-elem');
+        ctrl.inResultsTab = true;
         x[0].focus();
       }
       // When press enter with no result to reinit
@@ -97,6 +90,13 @@
         default:
           break;
       }
+    };
+    ctrl.unsetFocus = function () {
+      $timeout(function () {
+        if (!ctrl.inResultsTab) {
+          ctrl.doSearch = false;
+        }
+      }, 1500);
     };
     ctrl.reinit = function () {
       ctrl.doSearch = false;

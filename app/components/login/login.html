@@ -8,21 +8,27 @@
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body col-md-8 offset-md-2">
-                <form>
+                <form name="form" ng-submit="login.checkUser(login.username, login.password)" role="form">
                     <div class="input-group modal-logon-margin">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input id="name" type="name" class="form-control" name="name" value="" placeholder="Username" required>                                        
+                        <input ng-model="login.username" 
+                               id="name" type="name" class="form-control" name="name" value="" placeholder="Username" required>                                        
                     </div>
                     <div class="input-group modal-logon-margin">
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password" required>                                        
+                        <input ng-model="login.password"
+                               id="password" type="password" class="form-control" name="password" value="" placeholder="Password" required>                                        
                     </div>
                     <div class="checkbox modal-logon-margin">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary modal-logon-margin">Login</button>
+                    <button type="submit" class="btn btn-primary modal-logon-margin" 
+                            ng-disabled="form.$invalid">Login</button>
+                    <span class="alert alert-success" ng-show="login.isLogged.loggedIn && login.isVisible">You're logged</span>
+                    <span class="alert alert-danger" ng-show="!login.isLogged.loggedIn && login.isVisible">Wrong username</span>
+                    <span></span>
                 </form>
             </div>
             <div class="modal-footer">

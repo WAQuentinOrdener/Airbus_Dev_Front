@@ -31,43 +31,6 @@
     ctrl.updateList = function (newFilter) {
       ctrl.filter = newFilter;
     };
-    var req = {
-      method: 'POST',
-      url: 'http://localhost:9201/logstash*/_search?pretty',
-      headers: {
-        'Content-Type': "application/json;charset=utf-8"
-      },
-      data: {
-        "size": 0,
-        "query": {
-          "bool": {
-            "must": [
-              {"match": {"Application.raw": "CDIS"}}
-            ],
-            "must_not": {
-              "exists": {
-                "field": "Process Start"
-              }
-            }
-          }
-        },
-        "aggs": {
-          "process_ids": {
-            "terms": {
-              "size": 1000,
-              "field": "User.raw"
-            }
-          }
-        }
-      }
-    };
-    $http(req).then(function successCallback(response) {
-      ctrl.datas = response.data;
-    }, function errorCallback(response) {
-      console.log('error', response);
-    });
-
-    ctrl.name = 'Home';
   }
 
   function $canActivate() {
