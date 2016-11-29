@@ -203,7 +203,7 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px;
-    padding-top: 10px;
+    height: 16px;
 }
 .bubbles{
     display:flex;
@@ -217,6 +217,13 @@ footer {
     min-width: 200px;
     max-width: 200px;
 }
+
+.button-link-tile .fa{
+    padding: 5px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
 .bubble {
     margin: 0 30px;
     border-radius: 20px;
@@ -235,17 +242,16 @@ footer {
 .green{
     background-color: #5fc75f;
 }
+.blue{
+    color: #2b96f3;
+}
 .inner-tile-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 18px;
 }
-.inner-tile-container .fa{
-    padding: 5px;
-    padding-top: 10px;
-    text-decoration: none;
-}
+
 .inner-tile-container a{
     color:inherit;
 }

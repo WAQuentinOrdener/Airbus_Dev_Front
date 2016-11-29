@@ -5,10 +5,13 @@
         <span class="err-text">Incidents</span>
         <span class="err-text">Availability</span>
     </div>
-    <div class="tile-layout" ng-repeat="result in appTiles.appsActive | filter: appTiles.filter">
+    <div class="tile-layout" ng-repeat="result in appTiles.appsActive | filter: ($root.user) ? appTiles.filter || {isFav: true} : appTiles.filter">
         <div class="tile">
             <div class="inner-tile-container">
                 <div class="app-text-tile">
+                    <span ng-show="$root.user"
+                          ng-click="appTiles.addToFav(result._source.code)"
+                          ng-class="{'blue' : result.isFav, 'fa fa-star-o' : !$root.user || !result.isFav, 'fa fa-star' : $root.user && result.isFav}"></span>
                     <span>{{ result._source.code }} - {{ result._source.name }}</span>
                 </div>
                 <div class="bubbles">

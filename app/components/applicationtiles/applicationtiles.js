@@ -20,7 +20,7 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$http', '$rootScope', 'UsersService'];
+  Controller.$inject = ['$http', '$rootScope', 'UsersService', '$timeout'];
 
   /**
    * Controller
@@ -28,7 +28,7 @@
    * @class Controller
    * @constructor
    */
-  function Controller($http, $rootScope, UsersService) {
+  function Controller($http, $rootScope, UsersService, $timeout) {
     var ctrl = this;
     // Request base to load active applications
     ctrl.req = {
@@ -52,9 +52,15 @@
     // User is connected change filter to display only fav AND applications actives
     $rootScope.$watch("user", function () {
       if (typeof $rootScope.user !== 'undefined') {
-        UsersService.getFavs($rootScope.user);
-        ctrl.filter = UsersService.tabFav;
-        console.log(ctrl);
+        UsersService.getFavs($rootScope.user).then(function () {
+          for (var i = 0; i < ctrl.appsActive.length; i++) {
+            for (var j = 0; j < UsersService.tabFav.length; j++) {
+              if (ctrl.appsActive[i]._source.code === UsersService.tabFav[j]) {
+                ctrl.appsActive[i].isFav = true;
+              }
+            }
+          }
+        });
       }
     });
     // Trigger animation onhover once
