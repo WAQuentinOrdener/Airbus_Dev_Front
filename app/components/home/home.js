@@ -8,7 +8,7 @@
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.home', [])
+          .module('Airbus_Dev_Front.components.home', ['ngStorage'])
           .component('home', {
             controller: Controller,
             controllerAs: 'home',
@@ -16,7 +16,7 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$http'];
+  Controller.$inject = ['$http', '$sessionStorage', '$rootScope'];
 
   /**
    * Controller
@@ -24,8 +24,11 @@
    * @class Controller
    * @constructor
    */
-  function Controller($http) {
+  function Controller($http, $sessionStorage, $rootScope) {
     var ctrl = this;
+    if ($sessionStorage.user) {
+      $rootScope.user = $sessionStorage.user;
+    }
     ctrl.filter = '';
     // Changing filter with searchBar
     ctrl.updateList = function (newFilter) {

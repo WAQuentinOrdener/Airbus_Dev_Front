@@ -20,7 +20,7 @@
           expand: true,
           dot: true,
           cwd: 'bower_components/components-font-awesome/fonts',
-          src: ['fonts/*.*'],
+          src: ['styles/fonts/*.*'],
           dest: '<%= paths.dist %>'
         }]
     },
