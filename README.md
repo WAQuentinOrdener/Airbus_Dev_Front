@@ -25,12 +25,8 @@ yo angular-eggs:server [name]
 After creating new component : 
  - Intregating him to index.html / main.js
 
-/!\ popover.js commented in index.html since loader not modulable
-
 ## Build
 
 remember : 
 
- - place your fonts from font-awesome + aribus manually in dist/fonts
- - care images bad compression making
- - copy/paste the files from folder dist in www folder
+ - place your fonts from font-awesome
