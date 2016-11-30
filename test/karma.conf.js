@@ -20,6 +20,7 @@ module.exports = function(config) {
       'bower_components/tether/dist/js/tether.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-resource/angular-resource.js',
+      'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       // injector:js
