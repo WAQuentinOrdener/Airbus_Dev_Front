@@ -8,9 +8,9 @@
 /* Setting the font airbus */
 @font-face {
     font-family: Airbus;
-    src: url('../fonts/aispec.ttf'),
-        url('../fonts/AirbusSpecial.eot'),
-        url('../fonts/AirbusSpecial.woff');
+    src: url('fonts/aispec.ttf'),
+        url('fonts/AirbusSpecial.eot'),
+        url('fonts/AirbusSpecial.woff');
     font-size: 14px;
 }
 
@@ -64,6 +64,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 0 12px 3px rgba(0, 54, 101, 0.5);
 }
 
 .img-navbar{
@@ -120,14 +121,21 @@ footer {
 }
 
 .refresh-icon{
-    border: 1px solid;
-    padding: 5px;
+    font-size: 35px;
     width: 35px;
+    height: 35px;
+}
+refresh .dropdown-item:hover{
+    cursor: pointer;
+    color:white!important;
+    background: #0e7fe2;
 }
 
 .dropdown-menu-right{
     right: auto;
     top: 35px;
+    padding: 0px;
+    border-radius: 0px;
 }
 
 .refresh-red{
@@ -180,6 +188,7 @@ footer {
 .tile-layout{
     padding: 10px;
     overflow:hidden;
+    animation: zoomIn 0.3s;
 }
 .tile {
     padding:10px;
@@ -298,17 +307,14 @@ searchbar {
     position: absolute;
     margin-top: 5px;
     width: 200px;
-    padding: 5px 0;
+    padding: 0;
     background: #fff;
     border-radius: 5px;
     border: 1px solid #aaa;    
     max-height: 14rem;
-    transition: max-height 5s ease-in;
     overflow: auto;
 }
-.result-panel.ng-hide-add, .result-panel.ng-hide-remove{
-    max-height: 0;
-}
+
 .result-panel::-webkit-scrollbar {
     display: none;
 }
@@ -320,7 +326,11 @@ searchbar {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.results-elem:first-child{
+    border-top:0px;
+}
 .results-elem:hover,  .results-elem:focus{
-    background: rgba(53,96,165,0.6);
-    cursor:pointer;
+    cursor: pointer;
+    color:white!important;
+    background: #0e7fe2;
 }
