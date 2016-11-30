@@ -8,9 +8,9 @@
 /* Setting the font airbus */
 @font-face {
     font-family: Airbus;
-    src: url('../fonts/aispec.ttf'),
-        url('../fonts/AirbusSpecial.eot'),
-        url('../fonts/AirbusSpecial.woff');
+    src: url('fonts/aispec.ttf'),
+        url('fonts/AirbusSpecial.eot'),
+        url('fonts/AirbusSpecial.woff');
     font-size: 14px;
 }
 
