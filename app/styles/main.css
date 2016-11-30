@@ -101,6 +101,9 @@ footer {
     outline: none;
     background-color: #2b96f3;
 }
+.user-connected{
+    background-color: #64c564;
+}
 .refresh-container{
     display: flex;
     justify-content: flex-end;
@@ -147,6 +150,11 @@ refresh .dropdown-item:hover{
 
 .logon-btn:focus{
     background-color: #2b96f3;
+    outline: none!important;
+}
+.user-connected:focus, .user-connected:hover{
+    color:#fff;
+    background-color: #43ad43!important;
     outline: none!important;
 }
 

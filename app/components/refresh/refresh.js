@@ -30,7 +30,7 @@
           $rootScope.refresh = true;
           $timeout(function () {
             $rootScope.refresh = false;
-          }, 800);
+          }, 700);
         }, ctrl.intervalReloadVal);
       } else {
         $rootScope.refresh = false;

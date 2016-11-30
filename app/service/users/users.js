@@ -7,10 +7,10 @@
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.service.users', [])
+          .module('Airbus_Dev_Front.service.users', ['ngStorage'])
           .factory('UsersService', UsersService);
 
-  UsersService.$inject = ['$http', '$rootScope'];
+  UsersService.$inject = ['$http', '$rootScope', '$sessionStorage'];
 
   /**
    * UsersService
@@ -18,7 +18,7 @@
    * @class UsersService
    * @constructor
    */
-  function UsersService($http, $rootScope) {
+  function UsersService($http, $rootScope, $sessionStorage) {
     /**
      * My property description.  Like other pieces of your comment blocks,
      * this can span multiple lines.
@@ -51,6 +51,7 @@
           if (response.data.hits.hits.length > 0) {
             usersService.loggedIn = true;
             $rootScope.user = user;
+            $sessionStorage.user = user;
           } else {
             usersService.loggedIn = false;
           }
