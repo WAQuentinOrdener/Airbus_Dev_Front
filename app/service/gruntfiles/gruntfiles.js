@@ -1,13 +1,13 @@
 /**
  * Gruntfiles Service module.
  *
- * @module Airbus_Dev_Front.service.gruntfiles
+ * @module airbus_dev_front.service.gruntfiles
  */
 (function () {
   'use strict';
 
   angular
-    .module('Airbus_Dev_Front.service.gruntfiles', [
+    .module('airbus_dev_front.service.gruntfiles', [
       'ngResource'
     ])
     .factory('GruntfilesService', GruntfilesService);

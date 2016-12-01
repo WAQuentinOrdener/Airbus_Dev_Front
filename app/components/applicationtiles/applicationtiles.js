@@ -1,14 +1,16 @@
 /**
  * ApplicationTiles Components module.
  *
- * @module Airbus_Dev_Front.components.applicationTiles
+ * @module airbus_dev_front.components.applicationTiles
  */
 /* global angular */
 (function () {
 
   angular
-          .module('Airbus_Dev_Front.components.applicationTiles', [
-            'Airbus_Dev_Front.service.users'])
+          .module('airbus_dev_front.components.applicationTiles', [
+            'airbus_dev_front.service.users',
+            'airbus_dev_front.service.dataloader'
+          ])
           .component('applicationTiles', {
             controller: Controller,
             controllerAs: 'appTiles',
@@ -20,7 +22,7 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$http', '$rootScope', 'UsersService'];
+  Controller.$inject = ['$http', '$rootScope', 'UsersService', 'DataLoaderService'];
 
   /**
    * Controller
@@ -28,26 +30,11 @@
    * @class Controller
    * @constructor
    */
-  function Controller($http, $rootScope, UsersService) {
+  function Controller($http, $rootScope, UsersService, DataLoaderService) {
     var ctrl = this;
-    // Request base to load active applications
-    ctrl.req = {
-      method: 'POST',
-      url: 'http://localhost:9201/.csmtool/_search',
-      data: {
-        "query": {
-          "bool": {
-            "must": [
-              {"match": {"_type": "application"}},
-              {"match": {"active": true}}
-            ]
-          }
-        }}
-    };
-    $http(ctrl.req).then(function successCallback(response) {
-      ctrl.appsActive = response.data.hits.hits;
-    }, function errorCallback(response) {
-      console.log('err', response);
+    // load data before charging in DOM
+    DataLoaderService.getAppActive().then(function () {
+      ctrl.appsActive = DataLoaderService.datas;
     });
     // User is connected change filter to display only fav AND applications actives
     $rootScope.$watch("user", function () {
@@ -110,7 +97,6 @@
       var x = document.getElementsByClassName('fa-bar-chart');
       x[index].style.animation = 'none';
     };
-    ctrl.name = 'applicationTiles';
   }
 
   function $canActivate() {
@@ -119,6 +105,5 @@
 
   Controller.prototype.$onInit = function () {
     var ctrl = this;
-    ctrl.onInit = 'Success';
   };
 })();

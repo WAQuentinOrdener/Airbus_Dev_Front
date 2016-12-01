@@ -1,15 +1,15 @@
 /**
  * Login Components module.
  *
- * @module Airbus_Dev_Front.components.login
+ * @module airbus_dev_front.components.login
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.login', [
-            'Airbus_Dev_Front.service.users',
+          .module('airbus_dev_front.components.login', [
+            'airbus_dev_front.service.users',
             'ngStorage'
           ])
           .component('login', {

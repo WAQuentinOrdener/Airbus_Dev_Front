@@ -1,14 +1,14 @@
 /**
  * Monitoring Components module.
  *
- * @module Airbus_Dev_Front.components.monitoring
+ * @module airbus_dev_front.components.monitoring
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.monitoring', ['ngComponentRouter'])
+          .module('airbus_dev_front.components.monitoring', ['ngComponentRouter'])
           .component('monitoring', {
             controller: Controller,
             templateUrl: 'components/monitoring/monitoring.html',

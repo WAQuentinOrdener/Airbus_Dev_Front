@@ -1,13 +1,13 @@
 /**
  * Users Service module.
  *
- * @module Airbus_Dev_Front.service.users
+ * @module airbus_dev_front.service.users
  */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.service.users', ['ngStorage'])
+          .module('airbus_dev_front.service.users', ['ngStorage'])
           .factory('UsersService', UsersService);
 
   UsersService.$inject = ['$http', '$rootScope', '$sessionStorage'];

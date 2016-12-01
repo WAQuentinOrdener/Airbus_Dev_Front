@@ -209,9 +209,8 @@ refresh .dropdown-item:hover{
     justify-content: center;
 }
 .err-text {
-    margin: 0 30px;
-    width: 40px;
-    text-overflow: ellipsis;
+    margin: 0px 5px;
+    width: 100px;
 }
 .app-text-tile{
     min-width: 200px;
@@ -242,13 +241,16 @@ refresh .dropdown-item:hover{
 }
 
 .bubble {
-    margin: 0 30px;
-    border-radius: 20px;
-    width: 40px;
-    text-align: center;
-    line-height: 40px;
-    height: 40px;
-    border: 4px solid #ccc;
+    margin: 0px 5px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ccc;
+    font-size: 12px;
+    font-family: Verdana;
+}
+.bubble p{
+    margin:0;
 }
 .red{
     background-color: #d24;

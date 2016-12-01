@@ -1,14 +1,14 @@
 /**
  * Searchbar Components module.
  *
- * @module Airbus_Dev_Front.components.searchbar
+ * @module airbus_dev_front.components.searchbar
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.searchbar', [])
+          .module('airbus_dev_front.components.searchbar', [])
           .component('searchbar', {
             controller: Controller,
             controllerAs: 'searchBar',

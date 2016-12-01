@@ -1,14 +1,14 @@
 /**
  * Kibana Components module.
  *
- * @module Airbus_Dev_Front.components.kibana
+ * @module airbus_dev_front.components.kibana
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.kibana', [])
+          .module('airbus_dev_front.components.kibana', [])
           .component('kibana', {
             controller: Controller,
             templateUrl: 'components/kibana/kibana.html',

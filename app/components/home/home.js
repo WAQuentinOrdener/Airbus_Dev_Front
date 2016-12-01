@@ -1,14 +1,14 @@
 /**
  * Home Components module.
  *
- * @module Airbus_Dev_Front.components.home
+ * @module airbus_dev_front.components.home
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.home', ['ngStorage'])
+          .module('airbus_dev_front.components.home', ['ngStorage'])
           .component('home', {
             controller: Controller,
             controllerAs: 'home',
