@@ -1,10 +1,15 @@
 <div id="application-tiles" class="container-tiles">
     {{ (appTiles.filter !== '') ? 'results filter by app code : ' + appTiles.filter : ''}}
     <div class="err-text-container">
-        <span class="err-text">Infra</span>
-        <span class="err-text">Incidents</span>
-        <span class="err-text">BMC</span>
-        <span class="err-text">BSM</span>
+        <div class="tile-title">
+            <span>Applications</span>
+        </div>
+        <div class="text-title-container">
+            <span class="err-text" ng-repeat="text in appTiles.appsActive.reports">{{text}}</span>
+        </div>
+        <div class="tile-links-title">
+            <span class="pull-right">Links</span>
+        </div>
     </div>
     <div class="tile-layout" ng-repeat="result in appTiles.appsActive| filter: ($root.user) ? appTiles.filter || {isFav: true} : appTiles.filter">
         <div class="tile">
@@ -16,37 +21,8 @@
                     <span>{{ result._source.code}} - {{ result._source.name}}</span>
                 </div>
                 <div class="bubbles">
-                    <div class="bubble" 
-                         ng-class="{'red' : result.errInfra > 20, 'amber' : result.errInfra <= 20 && result.errInfra > 10, 'green' : result.errInfra <= 10}">
-                        <p>Low : </p>
-                        <p>Medium : </p>
-                        <p>High : </p>
-                        <p>Critical : </p>
-                        <p>Operation : </p>
-                    </div>
-                    <div class="bubble"
-                         ng-class="{'red' : result.errSem > 20, 'amber' : result.errSem <= 20 && result.errSem > 10, 'green' : result.errSem <= 10}">
-                        <p>Low : </p>
-                        <p>Medium : </p>
-                        <p>High : </p>
-                        <p>Critical : </p>
-                        <p>Operation : </p>
-                    </div>
-                    <div class="bubble"
-                         ng-class="{'red' : result.errAvailability > 20, 'amber' : result.errAvailability <= 20 && result.errAvailability > 10, 'green' : result.errAvailability <= 10}">
-                        <p>Low : </p>
-                        <p>Medium : </p>
-                        <p>High : </p>
-                        <p>Critical : </p>
-                        <p>Operation : </p>
-                    </div>
-                    <div class="bubble"
-                         ng-class="{'red' : result.errAvailability > 20, 'amber' : result.errAvailability <= 20 && result.errAvailability > 10, 'green' : result.errAvailability <= 10}">
-                        <p>Low : </p>
-                        <p>Medium : </p>
-                        <p>High : </p>
-                        <p>Critical : </p>
-                        <p>Operation : </p>
+                    <div ng-repeat="report in appTiles.appsActive.reports">
+                        <block-info-tile report-name="report"></block-info-tile>
                     </div>
                 </div>
                 <div class="button-link-tile">

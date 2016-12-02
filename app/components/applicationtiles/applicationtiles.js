@@ -32,10 +32,15 @@
    */
   function Controller($http, $rootScope, UsersService, DataLoaderService) {
     var ctrl = this;
-    // load data before charging in DOM
+    // Init refresh for display gif loader before full loading data in DOM
+    $rootScope.refresh = true;
+    // Load data promise before charging in DOM
     DataLoaderService.getAppActive().then(function () {
       ctrl.appsActive = DataLoaderService.datas;
+      ctrl.appsActive.reports = ["Infra", "Incidents", "BMC", "BSM", "Operations"];
     });
+    // Promise return display page
+    $rootScope.refresh = false;
     // User is connected change filter to display only fav AND applications actives
     $rootScope.$watch("user", function () {
       ctrl.tabFavTmp = [];
