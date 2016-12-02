@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('Airbus_Dev_Front.config', [])
+    .module('airbus_dev_front.config', [])
     .config(AppConfig);
 
   function AppConfig($locationProvider, $httpProvider) {

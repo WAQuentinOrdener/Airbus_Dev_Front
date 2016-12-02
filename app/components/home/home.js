@@ -1,14 +1,14 @@
 /**
  * Home Components module.
  *
- * @module Airbus_Dev_Front.components.home
+ * @module airbus_dev_front.components.home
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.home', ['ngStorage'])
+          .module('airbus_dev_front.components.home', ['ngStorage'])
           .component('home', {
             controller: Controller,
             controllerAs: 'home',
@@ -26,6 +26,8 @@
    */
   function Controller($http, $sessionStorage, $rootScope) {
     var ctrl = this;
+    // Setting base Url in order to have portable fetch datas applications
+    $sessionStorage.url = "localhost:9201";
     if ($sessionStorage.user) {
       $rootScope.user = $sessionStorage.user;
     }

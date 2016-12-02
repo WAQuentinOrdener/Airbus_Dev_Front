@@ -1,14 +1,14 @@
 /**
  * Searchbar Components module.
  *
- * @module Airbus_Dev_Front.components.searchbar
+ * @module airbus_dev_front.components.searchbar
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.searchbar', [])
+          .module('airbus_dev_front.components.searchbar', [])
           .component('searchbar', {
             controller: Controller,
             controllerAs: 'searchBar',
@@ -20,31 +20,17 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$http', '$timeout'];
+  Controller.$inject = ['$http', '$timeout', 'DataLoaderService'];
 
-  function Controller($http, $timeout) {
+  function Controller($http, $timeout, DataLoaderService) {
     var ctrl = this;
     // Initiate values
     ctrl.searching = '';
     ctrl.doSearch = false;
     ctrl.inResultsTab = false;
-    ctrl.req = {
-      method: 'POST',
-      url: 'http://localhost:9201/.csmtool/_search?pretty',
-      data: {
-        "query": {
-          "bool": {
-            "must": [
-              {"match": {"_type": "application"}},
-              {"match": {"active": true}}
-            ]
-          }
-        }}
-    };
-    $http(ctrl.req).then(function successCallback(response) {
-      ctrl.appsActive = response.data.hits.hits;
-    }, function errorCallback(response) {
-      console.log('err', response);
+    // Load data promise before charging in DOM
+    DataLoaderService.getAppActive().then(function () {
+      ctrl.appsActive = DataLoaderService.datas;
     });
     // Set selection as default text + set value to searchDone hiding results
     ctrl.selectResult = function (item) {

@@ -1,22 +1,24 @@
 /**
- * This is Airbus_Dev_Front module.
+ * This is airbus_dev_front module.
  *
- * @module Airbus_Dev_Front
+ * @module airbus_dev_front
  */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front', [
+          .module('airbus_dev_front', [
             'ngComponentRouter',
-            'Airbus_Dev_Front.config',
-            'Airbus_Dev_Front.components.home',
-            'Airbus_Dev_Front.components.applicationTiles',
-            'Airbus_Dev_Front.components.monitoring',
-            'Airbus_Dev_Front.components.searchbar',
-            'Airbus_Dev_Front.components.login',
-            'Airbus_Dev_Front.components.refresh',
-            'Airbus_Dev_Front.components.kibana'
+            'airbus_dev_front.config',
+            'airbus_dev_front.components.home',
+            'airbus_dev_front.components.applicationTiles',
+            'airbus_dev_front.components.blockInfoTile',
+            'airbus_dev_front.components.monitoring',
+            'airbus_dev_front.components.searchbar',
+            'airbus_dev_front.components.urlModifier',
+            'airbus_dev_front.components.login',
+            'airbus_dev_front.components.refresh',
+            'airbus_dev_front.components.kibana'
           ])
           .controller('AppController', AppController);
 
@@ -26,7 +28,7 @@
    * AppController
    *
    * @class AppController
-   * @main Airbus_Dev_Front
+   * @main airbus_dev_front
    * @constructor
    */
   function AppController($rootRouter) {

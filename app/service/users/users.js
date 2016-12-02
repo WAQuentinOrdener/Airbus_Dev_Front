@@ -1,13 +1,13 @@
 /**
  * Users Service module.
  *
- * @module Airbus_Dev_Front.service.users
+ * @module airbus_dev_front.service.users
  */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.service.users', ['ngStorage'])
+          .module('airbus_dev_front.service.users', ['ngStorage'])
           .factory('UsersService', UsersService);
 
   UsersService.$inject = ['$http', '$rootScope', '$sessionStorage'];
@@ -35,7 +35,7 @@
       loginTest: function (user, pwd) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/_search',
+          url: 'http://' + $sessionStorage.url + '/.csmtool/_search',
           data: {
             "query": {
               "bool": {
@@ -66,7 +66,7 @@
       getFavs: function (user) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/_search',
+          url: 'http://' + $sessionStorage.url + '/.csmtool/_search',
           data: {
             "query": {
               "bool": {
@@ -84,13 +84,15 @@
           return usersService.tabFav;
         }, function errorCallback(response) {
           console.log('err', response);
+          // if bad URL give delete previous datas
+          delete usersService.tabFav;
         });
       },
       // Update tabFav for users
       updateFavs: function (newFavs, user) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/users/' + user + '/_update',
+          url: 'http://' + $sessionStorage.url + '/.csmtool/users/' + user + '/_update',
           data: {
             "doc": {
               'fav': newFavs
@@ -103,7 +105,6 @@
         });
       }
     };
-
     return usersService;
   }
 
