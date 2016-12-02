@@ -26,6 +26,8 @@
    */
   function Controller($http, $sessionStorage, $rootScope) {
     var ctrl = this;
+    // Setting base Url in order to have portable fetch datas applications
+    $sessionStorage.url = "localhost:9201";
     if ($sessionStorage.user) {
       $rootScope.user = $sessionStorage.user;
     }

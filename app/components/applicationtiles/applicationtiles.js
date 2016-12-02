@@ -22,7 +22,7 @@
             $canActivate: $canActivate
           });
 
-  Controller.$inject = ['$http', '$rootScope', 'UsersService', 'DataLoaderService'];
+  Controller.$inject = ['$http', '$rootScope', 'UsersService', 'DataLoaderService', '$sessionStorage'];
 
   /**
    * Controller
@@ -30,17 +30,13 @@
    * @class Controller
    * @constructor
    */
-  function Controller($http, $rootScope, UsersService, DataLoaderService) {
+  function Controller($http, $rootScope, UsersService, DataLoaderService, $sessionStorage) {
     var ctrl = this;
-    // Init refresh for display gif loader before full loading data in DOM
-    $rootScope.refresh = true;
     // Load data promise before charging in DOM
     DataLoaderService.getAppActive().then(function () {
       ctrl.appsActive = DataLoaderService.datas;
-      ctrl.appsActive.reports = ["Infra", "Incidents", "BMC", "BSM", "Operations"];
     });
-    // Promise return display page
-    $rootScope.refresh = false;
+    ctrl.reports = ["Infra", "Incidents", "BMC", "BSM", "Operations"];
     // User is connected change filter to display only fav AND applications actives
     $rootScope.$watch("user", function () {
       ctrl.tabFavTmp = [];

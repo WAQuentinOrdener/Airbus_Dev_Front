@@ -15,6 +15,7 @@
             'airbus_dev_front.components.blockInfoTile',
             'airbus_dev_front.components.monitoring',
             'airbus_dev_front.components.searchbar',
+            'airbus_dev_front.components.urlModifier',
             'airbus_dev_front.components.login',
             'airbus_dev_front.components.refresh',
             'airbus_dev_front.components.kibana'

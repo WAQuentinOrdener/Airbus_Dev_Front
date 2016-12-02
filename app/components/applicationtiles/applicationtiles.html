@@ -5,7 +5,7 @@
             <span>Applications</span>
         </div>
         <div class="text-title-container">
-            <span class="err-text" ng-repeat="text in appTiles.appsActive.reports">{{text}}</span>
+            <span class="err-text" ng-repeat="text in appTiles.reports">{{text}}</span>
         </div>
         <div class="tile-links-title">
             <span class="pull-right">Links</span>
@@ -21,7 +21,7 @@
                     <span>{{ result._source.code}} - {{ result._source.name}}</span>
                 </div>
                 <div class="bubbles">
-                    <div ng-repeat="report in appTiles.appsActive.reports">
+                    <div ng-repeat="report in appTiles.reports">
                         <block-info-tile report-name="report"></block-info-tile>
                     </div>
                 </div>

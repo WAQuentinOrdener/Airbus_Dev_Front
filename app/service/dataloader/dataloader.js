@@ -10,7 +10,7 @@
           .module('airbus_dev_front.service.dataloader', [])
           .factory('DataLoaderService', DataLoaderService);
 
-  DataLoaderService.$inject = ['$http'];
+  DataLoaderService.$inject = ['$http', '$sessionStorage'];
 
   /**
    * DataLoaderService
@@ -18,7 +18,7 @@
    * @class DataLoaderService
    * @constructor
    */
-  function DataLoaderService($http) {
+  function DataLoaderService($http, $sessionStorage) {
 
     /**
      * My property description.  Like other pieces of your comment blocks,
@@ -34,7 +34,7 @@
         // Request base to load active applications
         var req = {
           method: 'POST',
-          url: 'http://localhost:9201/.csmtool/application/_search',
+          url: 'http://' + $sessionStorage.url + '/.csmtool/application/_search',
           data: {
             "query": {
               "bool": {
@@ -48,6 +48,8 @@
           dataloaderService.datas = response.data.hits.hits;
         }, function errorCallback(response) {
           console.log('err', response);
+          // if bad URL give delete previous datas
+          delete dataloaderService.datas;
         });
         return dataloaderService.datas;
       }

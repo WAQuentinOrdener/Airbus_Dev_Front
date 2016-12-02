@@ -92,6 +92,8 @@ footer {
 .text-navbar{
     color: #3560a5;
     margin: 0 10px;
+    padding: 10px 0;
+    line-height: 20px;
 }
 
 .logon-btn{
@@ -351,4 +353,15 @@ searchbar {
     cursor: pointer;
     color:white!important;
     background: #0e7fe2;
+}
+
+/* Url modifier */
+
+url-modifier {
+    margin: 5px;
+}
+.text-urlbar {
+    font-family: Verdana;
+    line-height: 35px;
+    margin-right: 5px;
 }
