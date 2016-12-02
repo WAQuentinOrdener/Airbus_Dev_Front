@@ -1,14 +1,14 @@
 /**
  * Refresh Components module.
  *
- * @module Airbus_Dev_Front.components.refresh
+ * @module airbus_dev_front.components.refresh
  */
 /* global angular */
 (function () {
   'use strict';
 
   angular
-          .module('Airbus_Dev_Front.components.refresh', [])
+          .module('airbus_dev_front.components.refresh', [])
           .component('refresh', {
             controller: Controller,
             controllerAs: 'refresh',

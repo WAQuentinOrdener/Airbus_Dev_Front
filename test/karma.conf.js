@@ -25,6 +25,7 @@ module.exports = function(config) {
       // endbower
       // injector:js
       'app/components/applicationtiles/applicationtiles.js',
+      'app/components/blockinfotile/blockinfotile.js',
       'app/components/home/home.js',
       'app/components/kibana/kibana.js',
       'app/components/login/login.js',
@@ -32,9 +33,11 @@ module.exports = function(config) {
       'app/components/refresh/refresh.js',
       'app/components/searchbar/searchbar.js',
       'app/scripts/config.js',
+      'app/service/dataloader/dataloader.js',
       'app/service/gruntfiles/gruntfiles.js',
       'app/service/users/users.js',
       'test/components/applicationtiles/applicationtiles.spec.js',
+      'test/components/blockinfotile/blockinfotile.spec.js',
       'test/components/home/home.spec.js',
       'test/components/kibana/kibana.spec.js',
       'test/components/login/login.spec.js',
@@ -45,6 +48,8 @@ module.exports = function(config) {
       'test/main.spec.js',
       'test/service/authentification/authentification.mock.js',
       'test/service/authentification/authentification.spec.js',
+      'test/service/dataloader/dataloader.mock.js',
+      'test/service/dataloader/dataloader.spec.js',
       'test/service/gruntfiles/gruntfiles.mock.js',
       'test/service/gruntfiles/gruntfiles.spec.js',
       'test/service/user/user.mock.js',

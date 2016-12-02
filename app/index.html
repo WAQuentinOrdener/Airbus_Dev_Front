@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <base href="/">
-        <title>Airbus_Dev_Front</title>
+        <title>airbus_dev_front</title>
         <meta http-equiv="X-UA-Compatible" content="IE=11" />
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="Airbus_Dev_Front" ng-controller="AppController as Airbus_Dev_Front">
+    <body ng-app="airbus_dev_front" ng-controller="AppController as airbus_dev_front">
         <!--[if lt IE 8]>
           <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -83,13 +83,16 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <!-- injector:js -->
         <script src="components/applicationtiles/applicationtiles.js"></script>
+        <script src="components/blockinfotile/blockinfotile.js"></script>
         <script src="components/home/home.js"></script>
         <script src="components/kibana/kibana.js"></script>
         <script src="components/login/login.js"></script>
         <script src="components/monitoring/monitoring.js"></script>
         <script src="components/refresh/refresh.js"></script>
         <script src="components/searchbar/searchbar.js"></script>
+        <script src="components/urlmodifier/urlmodifier.js"></script>
         <script src="scripts/config.js"></script>
+        <script src="service/dataloader/dataloader.js"></script>
         <script src="service/gruntfiles/gruntfiles.js"></script>
         <script src="service/users/users.js"></script>
         <!-- endinjector -->
